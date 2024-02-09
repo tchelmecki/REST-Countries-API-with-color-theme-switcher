@@ -168,7 +168,7 @@ button:hover{
   width: 80svw;
   height: 50svh;
   margin-top: 2%;
-  background-color: red;
+  /* background-color: red; */
   display: flex;
 }
 .country-info img{
@@ -180,32 +180,123 @@ button:hover{
   width: 50%;
   display: flex;
   flex-wrap: wrap;
+  line-height: 30px;
 }
-.country-details .country-name{
-  width: 100%;
-  height: 20%;
-  background-color: beige;
-}
+
 .details{
   display: flex;
   width: 100%;
-  height: 50%;
+  height: 80%;
+  align-items: center;
 }
 .left-details{
   width: 50%;
   height: 80%;
-  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: blue; */
+}
+.left-details p:first-child{
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
 }
 .right-details{
   width: 50%;
   height: 80%;
-  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 45px;
+  /* background-color: orange; */
 }
 .border-countries{
   width: 100%;
   height: 20%;
-  background-color: blueviolet;
+  text-align: center;
+  /* background-color: blueviolet; */
 }
+.border-countries span{
+  display: flex;
+}
+.border-countires-amount{
+  width: 63%;
+  display: flex;
+}
+
+/*============LOADER=============*/
+.container-loader{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  display: flex;
+  width: 70px;
+  height: 70px ;
+  justify-content: space-around;
+  /* background-color: blue; */
+  flex-wrap: wrap;
+}
+.container-loader .circle{
+  width: 2px;
+  height: 20px;
+  /* background-color: var(--white); */
+  /* border-radius: 100%; */
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+.container-loader .circle-shadow{
+  width: 20px;
+  height: 20px;
+  background-color: #ababab;
+}
+.container-loader .circle-shadow:not(:nth-child(5)){
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.circle-shadow:nth-child(2){
+  animation-delay: 0.2s;
+}
+.circle-shadow:nth-child(3){
+  animation-delay: 0.3s;
+}
+.circle-shadow:nth-child(6){
+  animation-delay: 0.4s;
+}
+.circle-shadow:nth-child(9){
+  animation-delay: 0.5s;
+}
+.circle-shadow:nth-child(8){
+  animation-delay: 0.6s;
+}
+.circle-shadow:nth-child(7){
+  animation-delay: 0.7s;
+}
+.circle-shadow:nth-child(4){
+  animation-delay: 0.8s;
+}
+
+.container-loader .circle-shadow:nth-child(1),
+.circle-shadow:nth-child(2),
+.circle-shadow:nth-child(3){
+  background-color: #ababab;
+}
+
+.container-loader .circle-shadow:nth-child(5){
+  background-color: var(--verydarkbluebg);
+}
+
+/* The animation code */
+@keyframes example {
+  0%   {background-color: var(--white);}
+  100%  {background-color: var(--darkblue);}
+}
+
+
 
 
 

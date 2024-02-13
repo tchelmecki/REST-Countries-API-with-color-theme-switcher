@@ -33,7 +33,7 @@ nav{
   background-color: var(--darkblue);
   font-weight: 800;
   font-size: 24px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;  /* border-bottom: ; */
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;  
 }
 nav span{
   display: flex;
@@ -74,6 +74,8 @@ input, select{
   color: var(--white);
   background-color: var(--darkblue);
   letter-spacing: 1px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 input{
   width: 550px;
@@ -82,11 +84,15 @@ input{
 select{
   padding: 0 20px 0 20px;
   transition: .2s ease-in-out all;
+  
 }
 select:hover{
   cursor: pointer;
   filter:brightness(95%);
 
+}
+select option{
+  height: 100px;
 }
 input::placeholder{
   color: var(--white);
@@ -97,6 +103,7 @@ input::placeholder{
   left: 40px;
   top: 20px;
 }
+
 
 .countries{
   width: 80svw;
@@ -115,7 +122,7 @@ input::placeholder{
 }
 .country:hover{
   cursor: pointer;
-  filter:brightness(95%);
+  filter:brightness(85%);
 }
 .country img{
   width: 100%;
@@ -162,7 +169,6 @@ button span{
 }
 button:hover{
   cursor: pointer;
-  opacity: 90%;
 }
 .country-info{
   width: 80svw;
@@ -225,6 +231,7 @@ button:hover{
   display: flex;
 }
 
+
 /*============LOADER=============*/
 .container-loader{
   position: absolute;
@@ -252,7 +259,9 @@ button:hover{
   width: 20px;
   height: 20px;
   background-color: #ababab;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
+
 .container-loader .circle-shadow:not(:nth-child(5)){
   animation-name: example;
   animation-duration: 1s;
@@ -290,7 +299,7 @@ button:hover{
   background-color: var(--verydarkbluebg);
 }
 
-/* The animation code */
+
 @keyframes example {
   0%   {background-color: var(--white);}
   100%  {background-color: var(--darkblue);}

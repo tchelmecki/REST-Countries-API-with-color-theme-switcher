@@ -13,7 +13,7 @@ const CountryPage = () => {
         const fetchData = async () => {
           try {
             const response = await axios.get(`https://restcountries.com/v3.1/name/${countryName}`);
-            setCountryInfo(response.data[0]); // Pierwszy element z tablicy, ponieważ oczekujemy tylko jednego kraju
+            setCountryInfo(response.data[0]); //only one country
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -43,28 +43,29 @@ const CountryPage = () => {
                         <span>
                         <p>{countryInfo.name.common}</p>
 
+                        {countryInfo.languages && Object.keys(countryInfo.languages).length > 0 && (
                         <p><b>Native language:</b> {Object.values(countryInfo.languages)[0]}</p>
-                        <p><b>Population:</b> {countryInfo.population}</p>
+                        )}<p><b>Population:</b> {countryInfo.population}</p>
                         <p><b>Region: </b>{countryInfo.region}</p>
-                        <p><b>Capital: </b>{countryInfo.capital}</p>
-                        <p><b>Subregion: </b>{countryInfo.subregion}</p>
+                        <p><b>Capital: </b>{countryInfo.capital ? countryInfo.capital : "none"}</p>
+                        <p><b>Subregion: </b>{countryInfo.subregion ? countryInfo.subregion : "none"}</p>
                         </span>
                     </div>
                     
                     <div className="right-details">
                         <span>
                         <p><b>Top Level Domain: </b>{countryInfo.tld}</p>
-                        <p><b>Currencies:</b> {Object.values(countryInfo.currencies).map(currency => (
+                        <p><b>Currencies:</b> {countryInfo.currencies ? Object.values(countryInfo.currencies).map(currency => (
                         <span key={currency.code}>{currency.name}</span>
-                        ))}</p>
-                        <p><b>Languages:</b> {Object.values(countryInfo.languages).join(', ')}</p>
+                        )): "none"}</p>
+                        <p><b>Languages:</b> {countryInfo.languages ? Object.values(countryInfo.languages).join(', ') : "none"}</p>
                         </span>
                         </div>
                         
                     </div>
 
                     <div className="border-countries">
-                        <p><b>Border countries: </b>{countryInfo.borders.join(', ')}</p>
+                        <p><b>Border countries: </b>    {countryInfo.borders ? countryInfo.borders.join(', ') : 'none'}</p>
                     </div>
                 </div>
 

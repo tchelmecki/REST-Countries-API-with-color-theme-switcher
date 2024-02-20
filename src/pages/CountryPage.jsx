@@ -5,6 +5,11 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../components/Loader';
 
+
+export function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 const CountryPage = () => {
     const { countryName } = useParams();
     const [countryInfo, setCountryInfo] = useState(null);
@@ -22,7 +27,8 @@ const CountryPage = () => {
         fetchData();
       }, [countryName]);
 
-  return (
+
+return (
     <>
     <Navbar/>
     <main>
@@ -45,7 +51,7 @@ const CountryPage = () => {
 
                         {countryInfo.languages && Object.keys(countryInfo.languages).length > 0 && (
                         <p><b>Native language:</b> {Object.values(countryInfo.languages)[0]}</p>
-                        )}<p><b>Population:</b> {countryInfo.population}</p>
+                        )}<p><b>Population:</b> {formatNumber(countryInfo.population)}</p>
                         <p><b>Region: </b>{countryInfo.region}</p>
                         <p><b>Capital: </b>{countryInfo.capital ? countryInfo.capital : "none"}</p>
                         <p><b>Subregion: </b>{countryInfo.subregion ? countryInfo.subregion : "none"}</p>

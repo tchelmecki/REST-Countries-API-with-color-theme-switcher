@@ -23,6 +23,22 @@
   color: var(--white);
   font-family: 'Nunito Sans', sans-serif;  
 }
+/*================SCROLLBAR===============*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+::-webkit-scrollbar-thumb {
+  background:var(--darkgrey);  
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  cursor: pointer;
+
+}
 
 nav{
   height: 10svh;
@@ -124,14 +140,24 @@ input::placeholder{
   cursor: pointer;
   filter:brightness(85%);
 }
-.country img{
-  width: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
+.flag-container {
+  height: 50%;
+}
+
+.flag-image {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
+.country:active{
+  transform: scale(0.96);
+}
+
 .information{
+  height: 50%;
   width: 100%; 
   font-size: 14px; 
   padding: 12px 0 0 22px;
@@ -169,6 +195,9 @@ button span{
 }
 button:hover{
   cursor: pointer;
+}
+button:active{
+  transform: scale(0.9);
 }
 .country-info{
   width: 80svw;
@@ -307,7 +336,7 @@ button:hover{
 
 
 
-
+/*================DARK MODE===================*/
 
 /* button:focus,
 button:focus-visible {

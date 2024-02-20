@@ -4,6 +4,8 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
+import CountryPage from './CountryPage';
+import { formatNumber } from './CountryPage';
 
 function Home() {
     const [countries, setCountries] = useState([]);
@@ -82,10 +84,12 @@ function Home() {
                         {countries.map(country => (
                             <Link to={`/countrypage/${country.name.common}`} key={country.name.common} className="country-link">
                                 <div className='country' >
-                                    <img src={country.flags.png} alt="" />
+                                    <div className="flag-container">
+                                        <img className="flag-image" src={country.flags.png} alt="" />
+                                    </div>
                                     <div className="information">
                                         <p>{country.name.common}</p>
-                                        <p><b>Populations:</b> {country.population}</p>
+                                        <p><b>Populations:</b> {formatNumber(country.population)}</p>
                                         <p><b>Region: </b>{country.region}</p>
                                         <p><b>Capital: </b>{country.capital}</p>
                                     </div>
